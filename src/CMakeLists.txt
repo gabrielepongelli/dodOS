@@ -13,6 +13,7 @@ set(OS_OBJS "")
 # is empty, but will be updated inside the following  subdirectories
 set(OS_TARGETS "")
 
+add_subdirectory(boot)
 # TODO: add subdirectories
 
 set(OUTPUT_OS_PATH "${CMAKE_CURRENT_BINARY_DIR}/${OS_BINARY_NAME}")
@@ -25,6 +26,7 @@ add_custom_command(
     COMMAND ${CMAKE_LINKER} -o "${OUTPUT_OS_PATH}" --oformat binary -Ttext 0x7c00 ${OS_OBJS}
     VERBATIM
 )
+
 # Creating target on the output file for further dependencies
 add_custom_target(${OS_BINARY_NAME}
     DEPENDS ${OUTPUT_OS_PATH}
