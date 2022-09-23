@@ -1,3 +1,7 @@
+# @desc     CMake file which correctly assemble the main os binary file.
+# @author   Gabriele Pongelli
+# @date     22/09/2022
+
 # Set common compiler flags to use in every compilation
 set(CMAKE_ASM_FLAGS ${CMAKE_ASM_FLAGS} -msyntax=intel -mnaked-reg)
 set(COMMON_FLAGS -ffreestanding -O2 -Wall -Wextra)

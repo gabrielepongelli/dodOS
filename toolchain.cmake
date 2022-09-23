@@ -1,3 +1,7 @@
+# @desc     CMake toolchain file which set the tools to be used by cmake
+# @author   Gabriele Pongelli
+# @date     22/09/2022
+
 set(CMAKE_WARN_DEPRECATED OFF)
 
 set(CMAKE_SYSTEM_NAME Generic)

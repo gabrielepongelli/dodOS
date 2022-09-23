@@ -1,5 +1,9 @@
 #! /bin/sh
 
+# @desc     Shell script which setup and build the cmake project
+# @author   Gabriele Pongelli
+# @date     22/09/2022
+
 if [ $# -ne 3 ]; then
     echo "Usage: ./build.sh <toolchain_path> <project_path> <build_path>"
     exit 1

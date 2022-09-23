@@ -1,3 +1,7 @@
+# @desc     Real Mode (16 bit) bootloader that print "Hello world!"
+# @author   Gabriele Pongelli
+# @date     23/09/2022
+
 .code16                     # use 16 bits since we are in Real Mode
 .global _start              # define the _start symbol which will be the entry
 .type _start, @function     # of the bootloader

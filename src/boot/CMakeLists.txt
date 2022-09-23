@@ -1,3 +1,7 @@
+# @desc     CMake file which correctly builds the bootloader
+# @author   Gabriele Pongelli
+# @date     23/09/2022
+
 # List of bootloader sources
 set(BOOTLOADER_SRC
     boot.asm

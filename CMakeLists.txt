@@ -1,3 +1,7 @@
+# @desc     CMake file which build the os and generate its iso file
+# @author   Gabriele Pongelli
+# @date     22/09/2022
+
 cmake_minimum_required(VERSION 3.24)
 
 # Tell cmake that it is not necessary to test the compilers as it will generate 
