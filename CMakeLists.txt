@@ -19,20 +19,21 @@ set(OS_BINARY_PATH "") # Must be filled insied src subdir
 # Add sources to the project
 add_subdirectory(src)
 
+set(IMG_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.img")
 set(ISO_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.iso")
 
-# Create CD/DVD .iso file
+# Create the CD/DVD .iso file and the floppy .img file
 add_custom_command(
-    OUTPUT ${ISO_FILE}
+    OUTPUT ${ISO_FILE} ${IMG_FILE}
     DEPENDS ${OS_BINARY_NAME} ${OS_BINARY_PATH}
-    COMMAND dd if=/dev/zero of=floppy.img bs=1024 count=1440 status=none
-    COMMAND dd if=${OS_BINARY_PATH} of=floppy.img seek=0 count=1 conv=notrunc status=none
+    COMMAND dd if=/dev/zero of=${IMG_FILE} bs=1024 count=1440 status=none
+    COMMAND dd if=${OS_BINARY_PATH} of=${IMG_FILE} seek=0 conv=notrunc status=none
     COMMAND mkdir -p iso
-    COMMAND cp floppy.img iso/
+    COMMAND cp ${IMG_FILE} iso/floppy.img
     COMMAND mkisofs -quiet -V '${PROJECT_NAME}' -input-charset iso8859-1 -o ${ISO_FILE} -b floppy.img -hide floppy.img iso/
     VERBATIM
 )
 
 add_custom_target(iso ALL
-    DEPENDS ${ISO_FILE}
+    DEPENDS ${ISO_FILE} ${IMG_FILE}
 )
