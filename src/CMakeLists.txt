@@ -25,7 +25,7 @@ set(OS_BINARY_PATH ${OUTPUT_OS_PATH} PARENT_SCOPE)
 # Putting everything together
 add_custom_command(
     OUTPUT ${OUTPUT_OS_PATH}
-    DEPENDS boot ${OS_TARGETS} ${OS_BINS}
+    DEPENDS ${OS_TARGETS} ${OS_BINS}
     COMMAND ${CMAKE_COMMAND} -E cat ${OS_BINS} > "${OUTPUT_OS_PATH}"
     VERBATIM
 )

@@ -38,7 +38,7 @@ add_custom_target(img
 # Create the CD/DVD .iso file
 add_custom_command(
     OUTPUT ${ISO_FILE}
-    DEPENDS ${IMG_FILE}
+    DEPENDS img ${IMG_FILE}
     COMMAND mkdir -p iso
     COMMAND cp ${IMG_FILE} iso/floppy.img
     COMMAND mkisofs -quiet -V '${PROJECT_NAME}' -input-charset iso8859-1 -o ${ISO_FILE} -b floppy.img -hide floppy.img iso/
